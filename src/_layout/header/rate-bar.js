@@ -17,7 +17,9 @@ const RatesCont = styled.ul`
   color: #919191;
   @media(min-width: 768px){
     font-weight: normal;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    font-size: 14px;
+    font-weight: bold;
     color: ${props => props.theme.main.primaryColor};
   }
 `
@@ -44,10 +46,10 @@ const RateItemNoAfter = styled(RateItem)`
   }
 `
 
-export default ()=> {
+export default (props)=> {
 
   return(
-    <MainCont>
+    <MainCont {...props}>
       <Container>
         <RatesCont>
           <RateItem>

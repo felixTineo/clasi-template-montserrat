@@ -30,9 +30,13 @@ const Card = styled.div`
 `
 const Avatar = styled.img`
   width: 160px;
-  height: 160px;
+  height: 160px;  
   object-fit: cover;
   object-position: cover;
+  @media(min-width: 768px){
+    width: 100%;
+  //height: 160px;
+  }  
 `
 const Name = styled.p`
   color: ${props => props.theme.main.primaryColor};
@@ -70,7 +74,11 @@ export default ()=> {
             state.members.map(m => (
               <Col xs={12} md={6} key={m.id}>
                 <Card>
-                  <Avatar src={m.avatar} alt={m.lastName} />
+                  <Row>
+                    <Col xs={12} md={4}>
+                      <Avatar src={m.avatar} alt={m.lastName} />
+                    </Col>
+                    <Col xs={12} md={8}>
                   <Name>{m.firstName + " " + m.lastName}</Name>
                   <Description>
                     {m.description}
@@ -82,6 +90,8 @@ export default ()=> {
                       {m.phone}                      
                     </ContactInfo>
                   </ContactCont>
+                  </Col>
+                  </Row>
                 </Card>
               </Col>
             ))

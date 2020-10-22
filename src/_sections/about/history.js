@@ -34,16 +34,16 @@ export default ()=> {
       <Container>
         <Row>
           <Col xs={12} md={6}>
+            <Image src={state.description.background} />
+          </Col>                       
+          <Col xs={12} md={6}>
             <HistoryCont>
               <Title>
                 {state.history.title}
               </Title>
               <Description dangerouslySetInnerHTML={{__html: state.history.description}} />
             </HistoryCont>
-          </Col>
-          <Col xs={12} md={6}>
-            <Image src="/history-image.jpg" alt="historia" />
-          </Col>                    
+          </Col>       
         </Row>
       </Container>
     </MainCont>

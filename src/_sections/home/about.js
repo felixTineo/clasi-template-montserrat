@@ -10,7 +10,11 @@ const MainCont = styled.section`
   //padding-bottom: 6rem;
 `
 const HeroInfoCont = styled.div`
-  background-color: transparent;
+  background-color: ${props => props.theme.main.primaryColor};
+  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(${props => props.src});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   min-height: calc(50vh - 4rem);
 `
 const DescriptionCont = styled.div`
@@ -18,18 +22,20 @@ const DescriptionCont = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;  
-  height: 100%;
-  //padding: 4rem 3rem;
+  height: 471.74px;
+  padding: 0 10rem;
+  text-align: center;
+  color: #fff;
 `
 const Title = styled.h2`
   font-size: 26px;
-  color: ${props => props.theme.main.primaryColor};
   @media(min-width: 768px){
-    font-size: 36px;
+    font-size: 30px;
   }    
 `
 const Description = styled.p`
   margin: 2rem 0 4rem;
+  font-weight: 500;
 `
 const HeroImageContainer = styled.div`
   height: 100%;
@@ -45,10 +51,10 @@ const HeroImage = styled.img`
   object-fit: center;
 `
 const TitleService = styled(Title)`
-  color: ${props => props.theme.main.primaryColor};
   padding-top: 4rem;
   @media(min-width: 768px){
-    font-size: 36px;
+    font-size: 30px;
+    width: 70%;
   }  
 `
 const SubTitleService = styled(Description)`
@@ -79,33 +85,24 @@ export default ()=> {
   return(
     <Container>
     <MainCont>
-      <HeroInfoCont>
-          <Row>
-            <Col xs={12} md={6}>
-              <HeroImageContainer>
-                <HeroImage src={state.about.banner.image} />
-              </HeroImageContainer>
-            </Col>            
-            <Col xs={12} md={6}>
-              <DescriptionCont>
-                <Title>
-                  {state.about.banner.title}
-                </Title>
-                <Description>
-                  {state.about.banner.subTitle}
-                </Description>
-                <Button block outlined>
-                  {state.about.banner.buttonText}
-                </Button>
-              </DescriptionCont>
-            </Col>
-          </Row>
+      <HeroInfoCont src={state.about.banner.image}>
+        <DescriptionCont>
+          <Title>
+            {state.about.banner.title}
+          </Title>
+          <Description>
+            {state.about.banner.subTitle}
+          </Description>
+          <Button primary>
+            {state.about.banner.buttonText}
+          </Button>
+        </DescriptionCont>        
       </HeroInfoCont>
         <Row gutterWidth={128}>
-          <Col xs={12} md={6}>
+          <Col xs={12}>
             <TitleService>Ofrecemos un servicio ajustado a las necesidades de cada cliente</TitleService>
           </Col>
-          <Col xs={12} md={6}>
+          <Col xs={12}>
             <CarouselCont>
               <ServiceCarousel />
             </CarouselCont>

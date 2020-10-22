@@ -19,9 +19,9 @@ const Image = styled.img`
 `
 
 const Carousel = styled.div`
-  background-color: #F7F7F7;
+  //background-color: #F7F7F7;
   min-height: 99%;
-  //padding-bottom: 2rem;
+  padding-bottom: 2rem;
   @media(min-width: 768px){
     //padding: 4rem;
     //padding-top: 20%;
@@ -36,12 +36,7 @@ export default ()=> {
   return(
     <Container>
       <Row nogutter>
-        <Col xs={12} md={4}>
-          <ImageContainer>
-            <Image src={state.description.background} alt="nuestra empresa" />
-          </ImageContainer>
-        </Col>
-        <Col xs={12} md={8}>
+        <Col xs={12}>
           <Carousel>
             <CarouselInnerCont>
               <DescCarousel />

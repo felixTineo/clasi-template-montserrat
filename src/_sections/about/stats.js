@@ -6,11 +6,10 @@ import { Container, Row, Col } from 'react-grid-system';
 const MainCont = styled.section`
   background-color: #fff;
   //padding: 6rem 0 0;
-  background-color: ${props => props.theme.main.primaryColor};
+  //background-color: ${props => props.theme.main.primaryColor};
 `
 
 const InfoGram = styled.div`
-  color: #fff;
   //background-color: ${props => props.theme.main.primaryColor};
   display: flex;
   flex-direction: column;
@@ -21,12 +20,14 @@ const InfoGram = styled.div`
 `
 
 const SvgCont = styled.svg`
-  fill: #fff;
+  fill: ${props => props.theme.main.primaryColor};
 `
 const Value = styled.p`
   margin: 0;
   font-size: 2rem;
   padding: 1rem 0;
+  color: ${props => props.theme.main.primaryColor};
+  font-weight: bold;
 `
 const Meta = styled.p`
   margin: 0;

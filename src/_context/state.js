@@ -23,7 +23,7 @@ export default {
     },      
   },
   main:{
-    primaryColor: "#FF0101",
+    primaryColor: "#00B4A2",
     secondaryColor: "#ffffff",
     favicon: "",
     logo:{
@@ -41,7 +41,7 @@ export default {
       visible: true,
       title: "Contamos con una seleción exclusiva de propiedades.",
       footer: "Estas son solo algunas de las propiedades que tenemos para ofrecerte",
-      buttonText: "Ver todas las propiedades",
+      buttonText: "Ver más",
       items:[
         {
           id: uuid(),
@@ -753,7 +753,7 @@ export default {
    hero:{
      visible: true,
      background: "/new-hero.jpg",
-     title: "¿Qué documentos necesito para vender mi propiedades?",
+     title: "¿Qué documentos necesito para vender mis propiedades?",
      tag: "legales",
      date: "Agosto 24, 2020",
    },

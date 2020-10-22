@@ -3,8 +3,9 @@ import Context from '../../_context';
 import styled from 'styled-components';
 import { Visible, Hidden } from 'react-grid-system';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Dot } from 'pure-react-carousel';
-import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons';
+import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+import { v1 as uuid } from 'uuid';
 
 const chunkArray = (myArray, chunk) =>{
   var results = [];
@@ -18,7 +19,7 @@ const ServiceCont = styled.div`
   padding: 2rem;
 `
 const ServiceTitle = styled.p`
-  color: ${props => props.theme.main.primaryColor};
+  font-weight: bold;
 `
 const ServiceDescription = styled.p`
 
@@ -71,13 +72,13 @@ export default ()=> {
   const color = state.main.primaryColor;
   const itemsMovil = state.home.services.items;
   const itemsToChunk = state.home.services.items.map(item => item);
-  const itemsDesk = chunkArray(itemsToChunk, 2);
+  const itemsDesk = chunkArray(itemsToChunk, 3);
   return(
     <Fragment>
       <Hidden xs>
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={50}
+          naturalSlideHeight={25}
           //isIntrinsicHeight={true}
           totalSlides={itemsDesk.length}
           visibleSlides={1}
@@ -86,7 +87,7 @@ export default ()=> {
           <Slider>
             {
               itemsDesk.map((mainItem, index) => (
-                <Slide key={mainItem[0].id} index={index}>
+                <Slide key={uuid()} index={index}>
                   <ServiceContainer>
                   {
                     mainItem.map(item => (
@@ -99,10 +100,10 @@ export default ()=> {
             }
           </Slider>
           <ButtonBack className="carousel-back-button carousel-text-back-button">
-            <LeftCircleOutlined style={{ color, fontSize: 26 }} />
+            <ArrowLeftOutlined style={{ color, fontSize: 26 }} />
           </ButtonBack>
           <ButtonNext className="carousel-next-button carousel-text-next-button">
-            <RightCircleOutlined style={{ color, fontSize: 26 }} />
+            <ArrowRightOutlined style={{ color, fontSize: 26 }} />
           </ButtonNext>
         </CarouselProvider>
       </Hidden>
@@ -125,10 +126,10 @@ export default ()=> {
             }
           </Slider>
             <ButtonBack className="carousel-back-button carousel-text-back-button">
-              <LeftCircleOutlined style={{ color, fontSize: 26 }} />
+              <ArrowLeftOutlined style={{ color, fontSize: 26 }} />
             </ButtonBack>
             <ButtonNext className="carousel-next-button carousel-text-next-button">
-              <RightCircleOutlined style={{ color, fontSize: 26 }} />
+              <ArrowRightOutlined style={{ color, fontSize: 26 }} />
             </ButtonNext>
           </CarouselProvider>
       </Visible>

@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { Hidden, Container, Visible } from 'react-grid-system';
-import RateBar from './rate-bar';
 import NavDesktop from './nav-desktop';
 import NavMovil from './nav-movil';
 
@@ -24,14 +23,14 @@ export default ()=> {
   return(
     <Fragment>
       <Hidden xs>
-        <MainCont>
+        <MainCont className="animate__animated animate__fadeInDown">
           <Container>
             <NavDesktop />
           </Container>
         </MainCont>
       </Hidden>
       <Visible xs>
-        <MainCont>
+        <MainCont className="animate__animated animate__fadeInDown">
           <Container>
             <NavMovil />
           </Container>

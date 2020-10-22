@@ -4,106 +4,84 @@ import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
 import { NewsCard } from '../../_components/cards';
 
-const TitleCont = styled.div`
-  position: relative;
-  height: calc(100vh - 87px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  ::before{
-    content: " ";
-    background-image: url(${props => props.theme.singleNew.hero.background});
-    background-size: cover;
-    background-position: center;
-    width: 60vw;
-    height: 50%;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    @media(min-width: 576px){
-      height: 100%;
-      width: 50vw;
-      top: 0;
-      right: 0;
-    }
-  }
-`
-const Title = styled.h1`
-  position: relative;
-  color: #fff;
-  padding: 1rem;
-  text-align: left;
-  margin: 0;
-  width: 100%;
-  ::before{
-    content: " ";
-    background-color: ${props => props.theme.main.primaryColor};
-    opacity: .7;
-    width: 100%;
-    height: 60vh;
-    position: absolute;
-    left: 0;
-    top: 0;
-    @media(min-width: 576px){
-      height: 100%;
-    }
-  }
-  @media(min-width: 576px){
-    text-align: left;
-    width: 70vw;
-    padding: 4rem 2rem;
-  }
-`
-
 const MainCont = styled.article`
 
 `
 const Header = styled.header`
-  //background-image: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(${props => props.theme.singleNew.hero.background});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-`
-const InnerHeader = styled.div`
-    min-height: 60vh;
+    height: calc(100vh - 8rem);
+    margin-top: 1.5rem;
+    //margin-bottom: 4rem;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content:center;
+    @media(min-width: 576px){
+      min-height: calc(100vh - 87px);
+      margin-top: 0;
+    }
+    ::before{
+      content: " ";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 90%;
+      max-width: 975px;
+      height: 60%;
+      background-image: url(${props => props.theme.singleNew.hero.background});
+      background-size: cover;
+      background-position: center;
+      opacity: 1;
+      @media(min-width: 576px){
+        min-height: calc(100vh - 87px);
+        opacity: 1;
+        width: 60%;
+        height: 100%;
+        top: 0;
+      }
+    }
 `
-const HeaderTitle = styled.h1`
+const TitleCont = styled.div`
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+height: calc(100vh - 8rem);
+@media(min-width: 576px){
+  min-height: calc(100vh - 87px);
   margin-top: 0;
-  color: ${props => props.theme.main.primaryColor};
+}    
 `
-const HeaderDateContainer = styled.div`
+const Title = styled.h1`
+position: relative;
+z-index: 5;
+//margin-top: 8rem;
+user-select: none;
+@media(min-width: 576px){
+  width: 30%;
+  }
+`
+const NewInfoCont = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
 `
-const HeaderDate = styled.p `
-  margin-right: 2rem;
+const NewDate = styled.p`
+  color: #919191;
 `
-const Tag = styled.p`
-  padding: 5px 19px;
-  border-radius: 20px;
-  background: ${props => props.theme.main.primaryColor};
+const NewTag = styled.p`
+  background-color: ${props => props.theme.main.primaryColor};
+  padding: .5rem 2rem;
   color: #fff;
-  user-select: none;
+  margin-left: 2rem;
 `
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-`
+
 const IntroCont = styled.div`
   padding: 4rem 0 0;
 `
 const IntroFooter = styled.div`
   margin: 4rem 0;
   padding: 2rem;
-  color: ${props => props.theme.main.primaryColor};
-  font-style: italic;
+  //color: ${props => props.theme.main.primaryColor};
+  font-weight: bold;
   //background-color: ${props => props.theme.main.primaryColor};
 `
 const SocialCont = styled.ul`
@@ -158,14 +136,21 @@ export default ()=> {
   return(
     <MainCont>
       <Header>
-      <Container>
-        <TitleCont>
-          <Title>
-            <span style={{ zIndex: 5, position: "relative", width: "50%", display:"inline-block" }}>{state.hero.title}</span>
-          </Title>
-        </TitleCont>        
-              {/*<Image src={state.hero.background} alt={state.hero.title} />*/}
-      </Container>
+        <Container style={{ width: "100%" }}>
+          <TitleCont>
+            <Title className="animate__animated animate__fadeInDown">
+            {state.hero.title}
+            </Title>        
+            <NewInfoCont>
+              <NewDate>
+                {state.hero.date}
+              </NewDate>
+              <NewTag>
+                {state.hero.tag}
+              </NewTag>
+            </NewInfoCont>
+          </TitleCont>          
+        </Container>
       </Header>
       <IntroCont>
         <Container>

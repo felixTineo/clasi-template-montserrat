@@ -7,20 +7,10 @@ const CardCont = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #EBEBEB;
+  //border: 1px solid #EBEBEB;
   height: 420px;
   transition: 250ms ease;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.108337);
   margin:0 .3rem; 
-  &:hover{
-    //box-shadow: 0px 2px 22px rgba(0, 0, 0, 0.108337);
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, .12),
-                0px 2px 2px rgba(0, 0, 0, .12),
-                0px 4px 4px rgba(0, 0, 0, .12),
-                0px 8px 8px rgba(0, 0, 0, .12),
-                0px 16px 16px rgba(0, 0, 0, .12),
-                0px 32px 32px rgba(0, 0, 0, .12);
-  }
   @media(min-width: 768px){
     margin:0;
   }
@@ -35,7 +25,7 @@ const CardImage = styled.div`
   padding-top: 75%;
 `
 const CardInfo = styled.div`
-  padding: 1rem 1rem 1.5rem 1rem;
+  padding: 1rem 1rem 1.5rem 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -50,21 +40,22 @@ const CardTitleCont = styled.ul`
 `
 const CardTitle = styled.li`
   font-weight: bold;
+  color: #2a2a2a;
   font-size: 1.2rem;
   margin-bottom: .5rem;
 `
 const CardPrice = styled.li`
-  color: #5A5A5A;
+  color: ${props => props.theme.main.primaryColor};
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: .5rem;
 `
 const CardOperation = styled.span`
-  font-weight: bold;
+  color: #686868;
 `
 const CardCharacteristics = styled.ul`
   list-style: none;
-  color: #5A5A5A;
+  color: #2a2a2a;
   font-weight: 300;
 `
 
@@ -78,9 +69,13 @@ const Divider = styled.span`
 `
 const OperationCont = styled.div`
   position: absolute;
-  bottom: 10px;
-  left: 5px;
-  color: #fff;
+  bottom: 0px;
+  left: 0px;
+  background-color: #fff;
+  padding-top: 2rem;
+  min-width: 80%;
+  overflow: hidden;
+  color: #686868;
 `
 
 export default ({
@@ -96,13 +91,13 @@ export default ({
     <CardCont>
       <CardImage src={mainImage}>
         <OperationCont>
+          <CardTitle>{title}</CardTitle>
           <CardOperation>Venta - </CardOperation>
           <span>cod {code}</span>
         </OperationCont>
       </CardImage>
       <CardInfo>
         <CardTitleCont>
-          <CardTitle>{title}</CardTitle>
           <CardPrice>UF ${value}</CardPrice>
         </CardTitleCont>
         <CardCharacteristics>

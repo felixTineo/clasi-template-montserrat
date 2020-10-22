@@ -12,15 +12,27 @@ const MainCont = styled.section`
     padding: 4rem 0;
   }
 `
+const TitleCont = styled.div`
+  position: relative;
+  padding-top: 1rem;
+`
 const Title = styled.h2`
-  color: ${props => props.theme.main.primaryColor};
+  //color: ${props => props.theme.main.primaryColor};
   margin: 0;
   margin-bottom: 4rem;
-  font-weight: 300;
+  //font-weight: 300;
   width: 70%;
   @media(min-width:768px){
-    width: 60%;
+    width: 100%;
   }
+`
+const TitleBorder = styled.div`
+  width: 10%;
+  background-color: ${props => props.theme.main.primaryColor};
+  height: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
 `
 
 export default ({ noMargin })=> {
@@ -30,9 +42,12 @@ export default ({ noMargin })=> {
       <Container>
         <Row>
           <Col xs={12}>
-            <Title>
-              {state.title}
-            </Title>                 
+            <TitleCont>
+              <TitleBorder />
+              <Title>
+                {state.title}
+              </Title>   
+            </TitleCont>              
           </Col>
           <Col xs={12}>
             <PropertyCarousel />

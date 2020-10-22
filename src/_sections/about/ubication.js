@@ -10,10 +10,10 @@ const MainCont = styled.section`
 `
 const Title = styled.p`
   height: 100%;
-  background-color: ${props => props.theme.main.primaryColor};
-  color: #fff;
+  //background-color: ${props => props.theme.main.primaryColor};
+  //color: #fff;
   padding: 2rem;
-  //font-weight: bold;
+  font-weight: bold;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -32,12 +32,12 @@ export default ({ noContact })=> {
   return(
     <MainCont>
       <Row nogutter>
-        <Col xs={12} >
+        <Col xs={12} md={5}>
           <Title>
             {state.title}
           </Title>
         </Col>
-        <Col xs={12} >
+        <Col xs={12} md={7}>
           <Map src="/map.png" />          
         </Col>        
       </Row>

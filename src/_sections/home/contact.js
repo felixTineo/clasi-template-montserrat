@@ -8,15 +8,16 @@ const SectionCont = styled.div`
   margin-top: ${props => props.noMargin ? 0 : "4rem"};
   padding: 2rem 0;
   //background-color: ${props => props.theme.main.primaryColor};
-  color: ${props => props.theme.main.primaryColor};
+  //color: ${props => props.theme.main.primaryColor};
+  font-weight: bold;
 `
 const TextCont = styled.div`
   
 `
 const SectionText = styled.p`
-  text-align: left;
+  text-align: center;
   @media(min-width: 768px){
-    font-size: 2rem;
+    font-size: 1rem;
   }
 `
 

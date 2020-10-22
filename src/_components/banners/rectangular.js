@@ -11,15 +11,16 @@ const BannerCont = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: ${props => props.theme.main.primaryColor};
+  //color: ${props => props.theme.main.primaryColor};
 `
 const Title = styled.p`
   text-align: center;
-  font-size: 28px;
+  font-size: 1rem;
+  font-weight: bold;
   margin: 0;
   margin-bottom: 2rem;
   @media(min-width: 768px){
-    text-align: left;
+    //text-align: left;
     margin-bottom: 0;
   }
 `
