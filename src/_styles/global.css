@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Nunito&display=swap');
+
+html{
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Lato', sans-serif;
+  padding: 0;
+  margin: 0;
+  color: #212121;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button{
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button, input{
+  outline: none;
+  font-family: 'Lato', sans-serif;
+}
+
+input, select{
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Nunito', sans-serif;
+}
+
+h1{
+  font-size: 2rem;
+}
+
+h2{
+  font-size: 1.5rem;
+}
+
+.carousel-back-button, .carousel-next-button{
+  position: absolute;
+  top: -50px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+  transition: 250ms ease;
+}
+
+.carousel-back-button{
+  right: 220px;
+  background-color: transparent;
+}
+
+.carousel-next-button{
+  right: 45px;
+  background-color: transparent;
+}
+
+.property-dots-cont{
+  position: absolute;
+  top: -45px;
+  right: 100px;
+}
+
+.carousel-property-dot{
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border: none;
+  transition: 250ms ease;
+}
+
+.carousel-property-dot:nth-child(2n){
+  margin: 0 1rem;
+}
+
+.carousel-property-dot:disabled{
+  transform: scale(1.40);
+  filter: brightness(1.1);
+}
+
+.carousel-back-button:hover, .carousel-next-button:hover{
+  filter: brightness(1.1);
+}
+
+.carousel-back-button:active, .carousel-next-button:active{
+  filter: brightness(.9);
+}
+.carousel-text-back-button{
+  top: auto;
+  bottom: 0 !important;
+  left: auto;
+  right: 3rem;
+}
+
+.carousel-text-next-button{
+  top: auto;
+  bottom: 0 !important;
+  right: 0;
+}
+
+.carousel-text-dot{
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border: none;
+  transition: 250ms ease;
+}
+
+.carousel-text-dot:nth-child(2n){
+  margin: 0 .5rem;
+}
+
+.carousel-text-dot:disabled{
+  transform: scale(1.40);
+  filter: brightness(1.1);
+}
+
+
+@media(min-width: 768px){
+  h1{
+    font-size: 50px;
+  }
+  h2{
+    font-size: 2rem;
+  }
+  .carousel-text-dot{
+
+  }
+}
+
+.carousel-desc-back-button,  .carousel-desc-next-button{
+  background-image: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2));
+  transition: 250ms ease;
+}
+
+.carousel-desc-back-button:hover,  .carousel-desc-next-button:hover{
+  background-image: linear-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .2));
+}
+
+.carousel-desc-back-button{
+  top: auto;
+  bottom: -4rem !important;
+  right: 5rem;
+}
+
+.carousel-desc-next-button{
+  top: auto;
+  bottom: -4rem !important;
+  right: 2rem;
+}
+
+.clasi-icon path{
+  fill: #002438;
+  stroke: #002438;
+}
