@@ -7,7 +7,6 @@ const CardCont = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  //border: 1px solid #EBEBEB;
   height: 420px;
   transition: 250ms ease;
   margin:0 .3rem; 
@@ -62,11 +61,6 @@ const CardCharacteristics = styled.ul`
 const CharItem = styled.li`
   margin-bottom: .5rem;
 `
-const Divider = styled.span`
-  height: 1px;
-  width: 100%;
-  background-color: #EBEBEB;
-`
 const OperationCont = styled.div`
   position: absolute;
   bottom: 0px;
@@ -91,7 +85,9 @@ export default ({
     <CardCont>
       <CardImage src={mainImage}>
         <OperationCont>
-          <CardTitle>{title}</CardTitle>
+          <CardTitleCont>
+            <CardTitle>{title}</CardTitle>
+          </CardTitleCont>
           <CardOperation>Venta - </CardOperation>
           <span>cod {code}</span>
         </OperationCont>
