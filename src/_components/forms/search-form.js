@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useCallback } from 'react';
 import styled from 'styled-components';
 import { Col, Row, } from 'react-grid-system';
 import { Select, Input } from '../../_components/inputs';
@@ -38,40 +38,66 @@ const SvgCont = styled.svg`
 `
 
 export default ({ filter })=> {
+  const [byCode, setByCode] = useState(false);
+  const onChangeByCode = useCallback(e => {
+    if(e.target.value === "Código"){
+      setByCode(true);
+    } else {
+      setByCode(false);
+    }
+  })
   return(
     <Form onSubmit={(e)=> e.preventDefault()}>
       <Row gutterWidth={8}>
         <Col xs={12} md={2}>
           <Select
+            //defaultChecked="Propiedad"
             default="Buscar por"
-            options={["opcion 1", "opcion 2", "opcion 3"]}
+            onChange={onChangeByCode}
+            options={["Propiedad", "Código"]}
             gray
             vertical
           />          
         </Col>        
-        <Col xs={12} md={2}>
-          <Select
-            default="Propiedad"
-            options={["opcion 1", "opcion 2", "opcion 3"]}
-            gray
-            vertical
-          />          
-        </Col>
-        <Col xs={12} md={2}>
-          <Select
-            default="Operación"
-            options={["opcion 1", "opcion 2", "opcion 3"]}
-            gray
-            //vertical={horizontal ? false : true}
-          />
-        </Col>
-        <Col xs={12} md={4}>
-          <Input
-            placeholder="Comuna"
-            gray
-            //vertical={horizontal ? false : true}
-          />
-        </Col>
+        {
+          byCode
+          ?(
+            <Col xs={12} md={8}>
+              <Input
+                placeholder="Ingrese el código de la propiedad"
+                gray
+                //vertical={horizontal ? false : true}
+              />
+            </Col>              
+          )
+          :(
+            <Fragment>
+              <Col xs={12} md={2}>
+                <Select
+                  default="Propiedad"
+                  options={["opcion 1", "opcion 2", "opcion 3"]}
+                  gray
+                  vertical
+                />          
+              </Col>
+              <Col xs={12} md={2}>
+                <Select
+                  default="Operación"
+                  options={["opcion 1", "opcion 2", "opcion 3"]}
+                  gray
+                  //vertical={horizontal ? false : true}
+                />
+              </Col>
+              <Col xs={12} md={4}>
+                <Input
+                  placeholder="Comuna"
+                  gray
+                  //vertical={horizontal ? false : true}
+                />
+              </Col>              
+            </Fragment>
+          )
+        }
         <Col xs={12} md={2}>
           <Button block primary>
             Buscar
