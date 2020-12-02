@@ -71,7 +71,7 @@ export default ()=> {
             </Title>
           </Col>
           {
-            state.members.map(m => (
+            state.items.map(m => (
               <Col xs={12} md={6} key={m.id}>
                 <Card>
                   <Row>
@@ -79,9 +79,9 @@ export default ()=> {
                       <Avatar src={m.avatar} alt={m.lastName} />
                     </Col>
                     <Col xs={12} md={8}>
-                  <Name>{m.firstName + " " + m.lastName}</Name>
+                  <Name>{m.fullName}</Name>
                   <Description>
-                    {m.description}
+                    {m.cv}
                   </Description>
                   <ContactCont>
                     <ContactInfo>

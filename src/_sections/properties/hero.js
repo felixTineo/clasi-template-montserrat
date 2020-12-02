@@ -10,7 +10,7 @@
   const MainCont = styled.div`
     height: calc(100vh - 8rem);
     margin-top: 1.5rem;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -18,11 +18,12 @@
     @media(min-width: 576px){
       min-height: calc(100vh - 87px);
       margin-top: 0;
+      margin-bottom: 4rem;
     }
     ::before{
       content: " ";
       position: absolute;
-      bottom: 0;
+      bottom: 10%;
       right: 0;
       width: 90%;
       max-width: 975px;
@@ -37,6 +38,7 @@
         width: 60%;
         height: 100%;
         top: 0;
+        bottom: 0;
       }
     }
   `
@@ -50,11 +52,13 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-top: 5rem;
     height: calc(100vh - 8rem);
     @media(min-width: 576px){
       min-height: calc(100vh - 87px);
       margin-top: 0;
+      justify-content: center;
     }    
   `
   const Title = styled.h1`
@@ -68,7 +72,7 @@
   `
   const ButtonContainer = styled.div`
     position: absolute;
-    bottom: -30vh;
+    bottom: -5vh;
     left: 0;
     width: 100%;
     z-index: 1000;

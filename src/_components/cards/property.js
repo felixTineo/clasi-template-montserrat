@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import context from '../../_context';
 import Link from '../link';
 import styled from 'styled-components';
+import { truncate, FormatCurrency } from '../../_util';
 
 const CardCont = styled.div`
   background-color: #fff;
@@ -10,13 +12,17 @@ const CardCont = styled.div`
   height: 420px;
   transition: 250ms ease;
   margin:0 .3rem; 
+  border: 3px solid #fff;
+  &:hover{
+    border-color: ${props => props.theme.main.primaryColor};
+  }
   @media(min-width: 768px){
     margin:0;
   }
 `
 const CardImage = styled.div`
   position: relative;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, .8), transparent 35%), url(${props => props.src});
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .8), transparent 35%), url("${props => props.src}");
   background-position: center;
   background-size: cover;
   background-repeat: none;
@@ -30,6 +36,7 @@ const CardInfo = styled.div`
   display: flex;
   flex-direction: column;
   color: #5A5A5A;
+  padding-left: 1rem;
 `
 const CardTitleCont = styled.ul`
   list-style: none;
@@ -70,6 +77,8 @@ const OperationCont = styled.div`
   min-width: 80%;
   overflow: hidden;
   color: #686868;
+  max-width: 100px;
+  padding-left: 1rem;
 `
 
 export default ({
@@ -79,14 +88,16 @@ export default ({
   code,
   ubication,
   characteristics,
+  _id,
 })=> {
+  const builderId = useContext(context).builderId;
   return(
-    <Link to="/property" title="Ver propiedad">
+    <Link to={`/property?builderId=${builderId}&propertyId=${_id}`} title="Ver propiedad">
     <CardCont>
       <CardImage src={mainImage}>
         <OperationCont>
           <CardTitleCont>
-            <CardTitle>{title}</CardTitle>
+            <CardTitle>{truncate(title, 20)}</CardTitle>
           </CardTitleCont>
           <CardOperation>Venta - </CardOperation>
           <span>cod {code}</span>
@@ -97,7 +108,7 @@ export default ({
           <CardPrice>UF ${value}</CardPrice>
         </CardTitleCont>
         <CardCharacteristics>
-          <CharItem>{ubication.address}</CharItem>
+          <CharItem>{truncate(ubication.address, 50)}</CharItem>
           {
             characteristics.slice(0, 2).map((char, index) => (
               <CharItem key={index}>

@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 html{
-  font-size: 16px;
+  font-size: 14px;
   scroll-behavior: smooth;
+}
+
+@media(min-width: 576px){
+  html{
+    font-size: 16px;
+  }
 }
 
 *{
@@ -23,7 +29,7 @@ ul{
 }
 
 a{
-  color: #E5225C;
+  //color: #E5225C;
 }
 
 button{

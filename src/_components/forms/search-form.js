@@ -1,8 +1,12 @@
-import React, { useState, Fragment, useCallback } from 'react';
+import React, { useState, Fragment, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import { Col, Row, } from 'react-grid-system';
-import { Select, Input } from '../../_components/inputs';
+import { Select, Input, Autocomplete } from '../../_components/inputs';
 import { Button } from '../../_components/buttons';
+import { useNavigateForm } from '../../_hooks';
+import PROPERTY_TYPE from '../../_constants/PROPERTY_TYPE.json';
+import COMMUNES from '../../_constants/CITIES.json';
+import { getSearchParams } from 'gatsby-query-params';
 
 const Form = styled.form`
 
@@ -39,6 +43,38 @@ const SvgCont = styled.svg`
 
 export default ({ filter })=> {
   const [byCode, setByCode] = useState(false);
+  const { values, onChange, onFinish, setInitial } = useNavigateForm({
+    propertyType: '',
+    operation: '',
+    commune: '',
+    stringSearch: '',
+    priceMin: '',
+    priceMax: '',
+    bedrooms: '',
+    bathrooms: '',
+    currency: '',
+  });
+  const params = getSearchParams();
+  
+  useEffect(()=>{
+    if(params){
+      setInitial({...params, stringSearch: ''});
+    }
+    if(byCode){
+      setInitial({
+        propertyType: '',
+        operation: '',
+        commune: '',
+        stringSearch: '',
+        priceMin: '',
+        priceMax: '',
+        bedrooms: '',
+        bathrooms: '',
+        currency: '',
+      })
+    }
+  },[params, byCode]);
+
   const onChangeByCode = useCallback(e => {
     if(e.target.value === "Código"){
       setByCode(true);
@@ -47,12 +83,13 @@ export default ({ filter })=> {
     }
   })
   return(
-    <Form onSubmit={(e)=> e.preventDefault()}>
+    <Form onSubmit={(e)=> { e.preventDefault(); onFinish(); }}>
       <Row gutterWidth={8}>
         <Col xs={12} md={2}>
           <Select
             //defaultChecked="Propiedad"
             default="Buscar por"
+            value={ byCode ? "Código" : "Propiedad" }
             onChange={onChangeByCode}
             options={["Propiedad", "Código"]}
             gray
@@ -63,10 +100,11 @@ export default ({ filter })=> {
           byCode
           ?(
             <Col xs={12} md={8}>
-              <Input
+              <Autocomplete
+                id="stringSearch"
+                onSelect={onChange}
+                selected={values.commune}
                 placeholder="Ingrese el código de la propiedad"
-                gray
-                //vertical={horizontal ? false : true}
               />
             </Col>              
           )
@@ -74,25 +112,34 @@ export default ({ filter })=> {
             <Fragment>
               <Col xs={12} md={2}>
                 <Select
+                  id="propertyType"
+                  onChange={onChange}
+                  value={values.propertyType}
                   default="Propiedad"
-                  options={["opcion 1", "opcion 2", "opcion 3"]}
+                  options={PROPERTY_TYPE}
                   gray
-                  vertical
-                />          
+                  capitalize
+                />     
               </Col>
               <Col xs={12} md={2}>
                 <Select
+                  id="operation"
+                  onChange={onChange}        
+                  value={values.operation}          
                   default="Operación"
-                  options={["opcion 1", "opcion 2", "opcion 3"]}
+                  options={["VENTA", "ARRIENDO"]}
                   gray
-                  //vertical={horizontal ? false : true}
+                  capitalize
                 />
               </Col>
               <Col xs={12} md={4}>
-                <Input
+                <Autocomplete
+                  id="commune"
+                  onSelect={onChange}
+                  selected={values.commune}
+                  options={COMMUNES.map(val => val.name)}
                   placeholder="Comuna"
                   gray
-                  //vertical={horizontal ? false : true}
                 />
               </Col>              
             </Fragment>

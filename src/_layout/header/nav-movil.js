@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import context from '../../_context';
 import styled from 'styled-components';
 import Logo from './logo';
 import Link from '../../_components/link';
@@ -76,10 +77,14 @@ const SvgIcon = styled.svg`
 const LogoCont = styled.div`
   position: relative;
   z-index: 100;
+  flex-grow: 1;
+  flex-shrink: 0;
+  width: 100px;
 `
 
 export default ()=> {
   const [visibleNav, setVisibleNav] = useState(false);
+  const builderId = useContext(context).builderId;
 
   useEffect(()=> {
     if(visibleNav){
@@ -92,7 +97,7 @@ export default ()=> {
   return(
     <MainCont>
       <LogoCont>
-        <Logo dark/>
+        <Logo/>
       </LogoCont>
       <ButtonResponsive
         visible={visibleNav}
@@ -103,14 +108,14 @@ export default ()=> {
         <NavBar>
           <Container>
           <NavItem>
-            <Link to="/about">
+            <Link to={`/about?builderId=${builderId}`}>
               <NavLink>
                 Nosotros
               </NavLink>
             </Link>
           </NavItem>
           <NavItem>
-            <Link to="/properties">
+            <Link to={`/properties?builderId=${builderId}`}>
               <NavLink>
                 Propiedades
               </NavLink>
@@ -124,7 +129,7 @@ export default ()=> {
             </Link>
 </NavItem>*/}
           <NavItem>
-            <Link to="/contact">
+            <Link to={`/contact?builderId=${builderId}`}>
               <NavLink noMargin>
                 Contacto
               </NavLink>

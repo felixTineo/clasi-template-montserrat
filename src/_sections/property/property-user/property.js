@@ -51,7 +51,7 @@ export default ({ description })=> {
         </Hidden>
         <Col xs={12}>
           <PublicObs>
-            {description.publicObservation}              
+            {description.publicObservations}              
           </PublicObs>
         </Col>
         <Col xs={12}>
@@ -60,33 +60,37 @@ export default ({ description })=> {
             <Col xs={12} md={6}>
               <CharsCont>
                 {
-                  charsGeneral.slice(0, 7).map((c) => <CharItem key={c.id} {...c} />)
+                  //charsGeneral.slice(0, 7).map((c) => <CharItem key={c.id} {...c} />)
+                  description.characteristics.slice(0, description.characteristics.length / 2).map((c) => <CharItem key={c.id} {...c} />)
                 }
               </CharsCont>
             </Col>
             <Col xs={12} md={6}>
               <CharsCont>
                 {
-                  charsGeneral.slice(7, charsGeneral.length).map((c) => <CharItem key={c.id} {...c} />)
+                  //charsGeneral.slice(7, charsGeneral.length).map((c) => <CharItem key={c.id} {...c} />)
+                  description.characteristics.slice(description.characteristics.length / 2, -1).map((c) => <CharItem key={c.id} {...c} />)
                 }        
               </CharsCont>      
             </Col>            
           </Row>
         </Col>
         <Col xs={12}>
-          <h2 style={{ color: "#002438" }}>Otros servicios</h2>
+          {/*h2 style={{ color: "#002438" }}>Otros servicios</h2>*/}
           <Row>
             <Col xs={12} md={6}>
               <CharsCont>
                 {
-                  charsOthers.slice(0, 7).map((c) => <CharItem  key={c.id} {...c} />)
+                  //charsOthers.slice(0, 7).map((c) => <CharItem  key={c.id} {...c} />)
+                  [].map((c) => <CharItem key={c.id} {...c} />)
                 }
               </CharsCont>
             </Col>
             <Col xs={12} md={6}>
               <CharsCont>
                 {
-                  charsOthers.slice(7, charsOthers.length).map((c) => <CharItem key={c.id} {...c} />)
+                  //charsOthers.slice(7, charsOthers.length).map((c) => <CharItem key={c.id} {...c} />)
+                  [].map((c) => <CharItem key={c.id} {...c} />)
                 }        
               </CharsCont>                    
             </Col>            

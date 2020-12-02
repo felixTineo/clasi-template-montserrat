@@ -50,11 +50,13 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-top: 5rem;
     height: calc(100vh - 8rem);
     @media(min-width: 576px){
       min-height: calc(100vh - 87px);
       margin-top: 0;
+      justify-content: center;
     }    
   `
   const Title = styled.h1`

@@ -1,9 +1,10 @@
 import React from 'react';
 import Context from '../_context';
-import data from '../_context/state';
 import styled, { ThemeProvider } from 'styled-components';
 import Header from './header';
 import Footer from './footer';
+import { useLayout } from '../_hooks';
+import LoaderScreen from '../_components/LoaderScreen';
 import 'animate.css'
 
 const Layout = styled.div`
@@ -20,6 +21,11 @@ const Body = styled.div`
 `
 
 export default ({ children })=> {
+  
+  const { loading, data, error } = useLayout();
+
+  if(loading) return <LoaderScreen />
+  if(error) return <p>error de conexión</p>
 
   return(
     <Context.Provider value={data}>

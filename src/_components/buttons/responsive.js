@@ -13,7 +13,7 @@ const Bar = styled.li`
   background-color: ${props => props.theme.main.primaryColor};
   height: 3px;
   width: 19px;
-  margin-bottom: .25rem;
+  margin-bottom: ${props => props.noMargin ? "0" : "4px"};
   border-radius: 19px;
 `
 
@@ -50,7 +50,7 @@ export default ({ onClick, visible })=> {
       <BarsCont>
         <Bar id="responsive-bar-top" />
         <Bar id="responsive-bar-middle" />
-        <Bar id="responsive-bar-bottom" />
+        <Bar id="responsive-bar-bottom" noMargin />
       </BarsCont>
     </Button>
   )
