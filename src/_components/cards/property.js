@@ -85,6 +85,7 @@ export default ({
   mainImage,
   title,
   value,
+  currency,
   code,
   ubication,
   characteristics,
@@ -105,7 +106,7 @@ export default ({
       </CardImage>
       <CardInfo>
         <CardTitleCont>
-          <CardPrice>UF ${value}</CardPrice>
+          <CardPrice>{`${currency} ${FormatCurrency(currency, value)}`}</CardPrice>
         </CardTitleCont>
         <CardCharacteristics>
           <CharItem>{truncate(ubication.address, 50)}</CharItem>
