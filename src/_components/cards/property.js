@@ -28,6 +28,7 @@ const CardImage = styled.div`
   background-repeat: none;
   width: 100%;
   padding-top: 75%;
+  overflow: hidden;
 `
 const CardInfo = styled.div`
   padding: 1rem 1rem 1.5rem 0;
@@ -81,6 +82,16 @@ const OperationCont = styled.div`
   color: #686868;
   max-width: 100px;
 `
+const Status = styled.p`
+  margin: 0;
+  position: absolute; 
+  top: 2rem;
+  left: -5rem;
+  background-color: ${props => props.theme.main.primaryColor};
+  padding: .3rem 5rem;
+  font-size: .8rem;
+  transform: rotate(-45deg);
+`
 
 export default ({
   mainImage,
@@ -91,19 +102,33 @@ export default ({
   ubication,
   characteristics,
   _id,
-  operation
+  operation,
+  status,
 })=> {
   const builderId = useContext(context).builderId;
   return(
     <Link to={`/property?propertyId=${_id}`} title="Ver propiedad">
     <CardCont>
       <CardImage src={mainImage}>
+        {
+          status === "ARRENDADA" && (
+            <Status>
+            {status}
+          </Status>            
+          ) 
+          || status === "VENDIDA" &&(
+            <Status>
+            {status}
+          </Status>            
+          )
+        }
         <OperationCont>
           <CardTitleCont>
             <CardTitle>{truncate(title, 50)}</CardTitle>
           </CardTitleCont>
           <CardOperation>{operation.toLowerCase()} - </CardOperation>
           <span>cod {code}</span>
+          <br/>
         </OperationCont>
       </CardImage>
       <CardInfo>

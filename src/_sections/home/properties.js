@@ -44,8 +44,8 @@ export default ({ noMargin })=> {
   useEffect(()=>{
     (async()=>{
       try{
-        const data = await fetch(`https://api.clasihome.com/rest/properties?id=${office.id}&typeId=${office.typeId}&status=PUBLICADA&limit=9&integration=WEB&featured=true`);
-        //const data = await fetch(`https://api.clasihome.com/rest/properties?id=5e8e36b31c9d440000d35090&typeId=office&status=PUBLICADA&limit=9&integration=WEB&featured=true`);        
+        const data = await fetch(`https://api.clasihome.com/rest/properties?id=${office.id}&typeId=${office.typeId}&status=PUBLICADA,VENDIDA,ARRENDADA&limit=9&integration=WEB&featured=true`);
+        //const data = await fetch(`https://api.clasihome.com/rest/properties?id=5e8e36b31c9d440000d35090&typeId=office&status=PUBLICADA,VENDIDA,ARRENDADA&limit=9&integration=WEB&featured=true`);        
         const result = await data.json();
         console.log("ITEMS ITEMS ITEMS", result.properties);
         setItems(result.properties);
