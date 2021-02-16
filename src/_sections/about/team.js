@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Context from '../../_context';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
+import { MailFilled, PhoneFilled } from '@ant-design/icons';
 
 const MainCont = styled.section`
   @media(min-width: 768px){
@@ -32,7 +33,7 @@ const Avatar = styled.img`
   width: 160px;
   height: 160px;  
   object-fit: cover;
-  object-position: cover;
+  object-position: top;
   @media(min-width: 768px){
     width: 100%;
   //height: 160px;
@@ -85,9 +86,9 @@ export default ()=> {
                   </Description>
                   <ContactCont>
                     <ContactInfo>
-                      {m.email}
-                      {" "}
-                      {m.phone}                      
+                      <MailFilled style={{ marginRight: 8 }} /> {m.email}
+                      <br />
+                      <PhoneFilled style={{ marginRight: 8 }} /> {m.phone}                      
                     </ContactInfo>
                   </ContactCont>
                   </Col>

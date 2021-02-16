@@ -23,12 +23,12 @@ export default ({ dark })=> {
   const state = useContext(Context);
   const builderId = state.builderId;
   return(
-    <Link to={`/?builderId=${builderId}`}>
+    <Link to={`/`}>
       <Nav title="Inicio">
         {
           state.main.logo.isImage
           ?(
-            <LogoImg src={ dark ? "/logo.svg" : state.main.logo.value} />
+            <LogoImg src={ dark ? state.main.logoDark.value : state.main.logo.value} />
           )
           :(
             <LogoText>

@@ -130,7 +130,7 @@ export default ()=> {
         <Row nogutter>
           <Col xs={6}>
             <Title>
-              ¿Dudas? ¿Consultas? Estamos aquí para ayudarlo
+              Escríbenos y te contactaremos a la brevedad.
             </Title>            
           </Col>
           <Col xs={12} md={12}>
@@ -167,7 +167,7 @@ export default ()=> {
                     </Col>                
                     <Col xs={12}>
                       <SubTitleFooter>
-                        También puede escribirnos a <MailSpan>ventas@leasy.cl</MailSpan>
+                        También puede escribirnos a <MailSpan>contacto@oropropiedad.cl</MailSpan>
                       </SubTitleFooter>                                                              
                     </Col>   
                   </Row>
@@ -212,7 +212,7 @@ export default ()=> {
               lat={parseFloat(lat)}
               lng={parseFloat(lng)}
               height={300}
-              zoom={3}
+              zoom={18}
             />         
             )
           } 

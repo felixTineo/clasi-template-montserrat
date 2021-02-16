@@ -8,6 +8,7 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 
 const DescriptioneCont = styled.div`
   padding: 2rem;
+  padding-left: 0;
   //color: #fff;
 `
 const DescriptionTitle = styled.h2`

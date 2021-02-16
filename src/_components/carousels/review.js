@@ -8,6 +8,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 const RevieweCont = styled.div`
   position: relative;
   padding: 2rem;
+  padding-left: 0;
   //background-color: ${props => props.theme.main.primaryColor};
   //color: ${props => props.theme.main.primaryColor};
   display: flex;

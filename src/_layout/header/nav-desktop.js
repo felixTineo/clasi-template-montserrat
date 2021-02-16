@@ -21,15 +21,17 @@ const NavItem = styled.li`
   margin-left: ${props => props.noMargin ? 0 : "1.5rem"};
 `
 const NavLink = styled.span`
-  color: #212121;;
+  //color: #212121;
+  color: #fff;
   transition: 250ms ease;
   text-decoration: none !important;
   font-weight: bold;
+  &:visited{
+    //color: rgba(255, 255, 255, .6);
+    color: #fff;
+  }  
   &:hover{
     color: ${props => props.theme.main.primaryColor};;
-  }
-  &:visited{
-    color: rgba(255, 255, 255, .6);
   }
 `
 const SvgCont = styled.svg`

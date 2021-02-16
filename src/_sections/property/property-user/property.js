@@ -12,6 +12,7 @@ const MainCont = styled.div`
 const PublicObs = styled.p`
   font-weight: bold;
   margin: 2rem 0;
+  white-space: pre-line;
 `
 
 const CharsCont = styled.ul`

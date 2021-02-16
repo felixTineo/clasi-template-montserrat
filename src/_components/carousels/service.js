@@ -17,6 +17,7 @@ const chunkArray = (myArray, chunk) =>{
 
 const ServiceCont = styled.div`
   padding: 2rem;
+  padding-left: 0;
 `
 const ServiceTitle = styled.p`
   font-weight: bold;

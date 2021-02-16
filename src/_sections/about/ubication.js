@@ -30,7 +30,7 @@ export default ({ noContact })=> {
       <Row nogutter>
         <Col xs={12} md={5}>
           <Title>
-            {state.title}
+          Encuéntranos en 5 Norte N°816, Of. 10, Viña del Mar
           </Title>
         </Col>
         <Col xs={12} md={7}>
@@ -40,7 +40,7 @@ export default ({ noContact })=> {
               lat={parseFloat(lat)}
               lng={parseFloat(lng)}
               height={300}
-              zoom={3}
+              zoom={18}
             />         
             )
           }        

@@ -23,7 +23,7 @@ export default ()=> {
         <Row align="center">
           <Col xs={9}>
             <Title>
-              {state.home.contact.title}
+              ¿Necesitas asesoría en la compra, venta o arriendo de una propiedad? Cuenta con un servicio profesional.
             </Title>
           </Col>
           <Col xs={3}>

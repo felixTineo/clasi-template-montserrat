@@ -16,7 +16,7 @@ const TextCont = styled.div`
   
 `
 const SectionText = styled.p`
-  text-align: center;
+  //text-align: center;
   @media(min-width: 768px){
     font-size: 1rem;
   }
@@ -39,7 +39,7 @@ export default ({ noMargin })=> {
               <Col xs={12} md={9}>
                 <ButtonCont>
                   <SectionText>
-                    {sectionText}
+                    ¿Necesitas asesoría en la compra, venta o arriendo de una propiedad? Cuenta con un servicio profesional.
                   </SectionText>          
                 </ButtonCont>
               </Col>

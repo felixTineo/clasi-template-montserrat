@@ -50,7 +50,8 @@ const NavCont = styled.div`
   }      
 `
 const NavLink = styled(Link)`
-  color: #212121;
+  //color: #212121;
+  color: #fff;
   transition: 250ms ease;
   text-decoration: none;
   font-weight: bold;
@@ -58,11 +59,12 @@ const NavLink = styled(Link)`
   @media(min-width: 768px){
     display: block;
   }
-  &:hover{
-    color: ${props => props.theme.main.primaryColor} !important;
-  }
   &:visited{
     color: #212121;
+    color: #fff;
+  }  
+  &:hover{
+    color: ${props => props.theme.main.primaryColor} !important;
   }
 `
 const SvgIcon = styled.span`
@@ -77,6 +79,7 @@ const SocialNav = styled.ul`
   align-items: center;
   justify-content: flex-end;
   margin-top: 2rem;
+  color: #fff;
 `
 
 const SocialItem = styled.li`
@@ -149,7 +152,7 @@ export default ()=> {
     <Footer>
       <MainFooter>
         <Container>
-          <Row>
+          <Row align="center">
             <Col xs={12} md={4}>
               <Row>
                 <Col xs={12}>
@@ -169,7 +172,7 @@ export default ()=> {
                       {office.address}
                     </OfficeInfo>
                     <OfficeInfo>
-                      +{office.phone}
+                      {office.phone}
                     </OfficeInfo>
                     <OfficeInfo>
                       {office.email}

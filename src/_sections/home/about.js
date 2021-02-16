@@ -77,6 +77,7 @@ const QuoteCarouselCont = styled.div`
 `
 const CarouselCont = styled.div`
   position: relative;
+  margin-bottom: 4rem;
   //padding-top: 4rem;
 `
 
@@ -101,7 +102,7 @@ export default ()=> {
       </HeroInfoCont>
         <Row gutterWidth={128}>
           <Col xs={12}>
-            <TitleService>Ofrecemos un servicio ajustado a las necesidades de cada cliente</TitleService>
+            <TitleService>Ofrecemos un servicio único y personalizado</TitleService>
           </Col>
           <Col xs={12}>
             <CarouselCont>
