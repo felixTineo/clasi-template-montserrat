@@ -9,9 +9,9 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 import { v1 as uuid } from 'uuid';
 
-export default ()=> {
+export default ({ items })=> {
   const color = useContext(Context).main.primaryColor;
-  const items = useContext(Context).home.properties.items;
+  //const items = useContext(Context).home.properties.items;
   const itemsDesk = chunkArray(items.map(item => item), 3);
   return(
     <Fragment>

@@ -9,7 +9,7 @@ const CardCont = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 420px;
+  height: 470px;
   transition: 250ms ease;
   margin:0 .3rem; 
   border: 3px solid #fff;
@@ -58,6 +58,7 @@ const CardPrice = styled.li`
 `
 const CardOperation = styled.span`
   color: #686868;
+  text-transform: capitalize;
 `
 const CardCharacteristics = styled.ul`
   list-style: none;
@@ -73,12 +74,12 @@ const OperationCont = styled.div`
   bottom: 0px;
   left: 0px;
   background-color: #fff;
+  padding: 0 1rem;
   padding-top: 2rem;
   min-width: 80%;
   overflow: hidden;
   color: #686868;
   max-width: 100px;
-  padding-left: 1rem;
 `
 
 export default ({
@@ -90,17 +91,18 @@ export default ({
   ubication,
   characteristics,
   _id,
+  operation
 })=> {
   const builderId = useContext(context).builderId;
   return(
-    <Link to={`/property?builderId=${builderId}&propertyId=${_id}`} title="Ver propiedad">
+    <Link to={`/property?propertyId=${_id}`} title="Ver propiedad">
     <CardCont>
       <CardImage src={mainImage}>
         <OperationCont>
           <CardTitleCont>
-            <CardTitle>{truncate(title, 20)}</CardTitle>
+            <CardTitle>{truncate(title, 50)}</CardTitle>
           </CardTitleCont>
-          <CardOperation>Venta - </CardOperation>
+          <CardOperation>{operation.toLowerCase()} - </CardOperation>
           <span>cod {code}</span>
         </OperationCont>
       </CardImage>
@@ -109,11 +111,24 @@ export default ({
           <CardPrice>{`${currency} ${FormatCurrency(currency, value)}`}</CardPrice>
         </CardTitleCont>
         <CardCharacteristics>
-          <CharItem>{truncate(ubication.address, 50)}</CharItem>
+          <CharItem>{truncate(ubication.commune, 50)}</CharItem>
           {
-            characteristics.slice(0, 2).map((char, index) => (
+            characteristics.filter(char => (
+              char.name === "Superficie total" ||
+              char.name === "Superficie útil" ||
+              char.name === "Habitaciones" ||
+              char.name === "Baños" ||
+              char.name === "Estacionamientos"
+
+            ) ).map((char, index) => (
               <CharItem key={index}>
-                <span>{char.name} {char.value} {char.name === "Sup. Total" && "mt2"}</span>
+                {/*
+                  char.name === "Superficie total" && <img src="/icons/surface.svg" /> ||
+                  char.name === "Superficie útil" && <img src="/icons/surface.svg" />  ||
+                  char.name === "Habitaciones" && <img src="/icons/rooms.svg" /> ||
+                  char.name === "Baños" && <img src="/icons/bath.svg" />
+                */}
+                <span>{char.name} {char.value} {char.name === "Superficie total" && "mt2" || char.name === "Superficie útil" && "mt2"}</span>
               </CharItem>
             ))
           }

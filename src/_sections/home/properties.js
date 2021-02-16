@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Context from '../../_context';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'react-grid-system';
@@ -38,6 +38,23 @@ const TitleBorder = styled.div`
 
 export default ({ noMargin })=> {
   const state = useContext(Context).home.properties;
+  const office = useContext(Context).office;
+  const [items, setItems] = useState([]);
+
+  useEffect(()=>{
+    (async()=>{
+      try{
+        const data = await fetch(`https://api.clasihome.com/rest/properties?id=${office.id}&typeId=${office.typeId}&status=PUBLICADA&limit=9&integration=WEB&featured=true`);
+        //const data = await fetch(`https://api.clasihome.com/rest/properties?id=5e8e36b31c9d440000d35090&typeId=office&status=PUBLICADA&limit=9&integration=WEB&featured=true`);        
+        const result = await data.json();
+        console.log("ITEMS ITEMS ITEMS", result.properties);
+        setItems(result.properties);
+      }catch(e){
+        console.log(e);
+      }
+    })()
+  },[]);
+
   return(
     <MainCont id="properties" noMargin={noMargin}>
       <Container>
@@ -51,7 +68,7 @@ export default ({ noMargin })=> {
             </TitleCont>              
           </Col>
           <Col xs={12}>
-            <PropertyCarousel />
+            <PropertyCarousel items={items} />
           </Col>
           <Col xs={12}>
             <Rectangular

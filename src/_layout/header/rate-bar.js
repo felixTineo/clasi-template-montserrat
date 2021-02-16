@@ -11,7 +11,7 @@ const MainCont = styled.div`
   font-size: 12px;
   user-select: none;
   @media(min-width: 576px){
-    padding: 0;
+    padding: .5rem 0;
   }
 `
 const RatesCont = styled.ul`
@@ -22,7 +22,7 @@ const RatesCont = styled.ul`
   color: #919191;
   @media(min-width: 768px){
     font-weight: normal;
-    justify-content: flex-start;
+    justify-content: flex-end;
     font-size: 12px;
     font-weight: bold;
     color: ${props => props.theme.main.primaryColor};
@@ -77,7 +77,6 @@ export default (props)=> {
 
   return(
     <MainCont>
-      <Container>
         <RatesCont>
           <RateItem>
             UF {data.uf}
@@ -89,7 +88,6 @@ export default (props)=> {
             Dólar {data.dollar}
           </RateItemNoAfter>                    
         </RatesCont>
-      </Container>
     </MainCont>
   )
 }

@@ -5,6 +5,7 @@ import Header from './header';
 import Footer from './footer';
 import { useLayout } from '../_hooks';
 import LoaderScreen from '../_components/LoaderScreen';
+import { Helmet } from "react-helmet";
 import 'animate.css'
 
 const Layout = styled.div`
@@ -20,17 +21,23 @@ const Body = styled.div`
   }
 `
 
-export default ({ children })=> {
-  
-  const { loading, data, error } = useLayout();
-
-  if(loading) return <LoaderScreen />
-  if(error) return <p>error de conexión</p>
+export default ({ children, data })=> {
 
   return(
     <Context.Provider value={data}>
       <ThemeProvider theme={data}>
         <Layout>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <meta name="description" content="Encuentra aquí, tu lugar favorito" />
+            <title>Oro | Propiedad</title>
+            <link rel="canonical" href="" />
+            <meta name="og:url" content="" />
+            <meta name="og:title" content="Oro | Propiedad" />
+            <meta name="og:description" content="Encuentra aquí, tu lugar favorito" />
+            {/*<meta name="og:image" content="http://propiedadesmyc.cl/og-meta.jpg" />*/}
+            <meta name="og:type" content="website" />            
+          </Helmet>             
           <Header />
           <Body>
             {children}

@@ -3,6 +3,7 @@
 html{
   font-size: 14px;
   scroll-behavior: smooth;
+  //background-color: #333;
 }
 
 @media(min-width: 576px){
@@ -43,8 +44,10 @@ button, input{
   font-family: 'Montserrat', sans-serif;
 }
 
-input, select{
-  font-family: 'Montserrat', sans-serif;
+input, select, textarea, option{
+  font-family: 'Montserrat', sans-serif !important;
+  padding-left: 1rem !important;
+  outline: none !important;
 }
 
 h1, h2, h3, h4, h5, h6{

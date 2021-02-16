@@ -1,10 +1,8 @@
   import React, { useContext } from 'react';
   import styled from 'styled-components';
   import Context from '../../_context';
-  import { Container, Row, Col, Hidden } from 'react-grid-system';
+  import { Container } from 'react-grid-system';
   import { SearchForm } from '../../_components/forms';
-  import { DownCircleFilled } from '@ant-design/icons';
-  import RateBar from '../../_layout/header/rate-bar';
 
 
   const MainCont = styled.div`
@@ -75,9 +73,6 @@
             <Title className="animate__animated animate__fadeInDown">
               {state.home.hero.title}
             </Title>        
-            <Hidden xs>
-              <RateBar className="animate__animated animate__fadeInDown" />
-            </Hidden>
         </Container>
         <ButtonContainer>
           <Container>
