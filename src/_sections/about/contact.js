@@ -18,7 +18,7 @@ const Title = styled.p`
 export default ()=> {
   const state = useContext(Context);
   return(
-    <Container>
+
       <MainCont>
         <Row align="center">
           <Col xs={9}>
@@ -33,6 +33,6 @@ export default ()=> {
           </Col>
         </Row>
       </MainCont>
-    </Container>
+
   )
 }

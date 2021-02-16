@@ -7,10 +7,13 @@ import { Button } from '../../../_components/buttons';
 import { PlusCircleOutlined, LoadingOutlined} from '@ant-design/icons';
 
 const MainCont = styled.div`
-  padding: 4rem;
+  padding: 4rem 0;
   //background-color: #dadada;
-  border: 1px solid #EBEBEB;
   height: 100%;
+  @media(min-width: 768px){
+    padding: 4rem;
+    border: 1px solid #EBEBEB;
+  }
 `
 const UserCont = styled.div`
   margin-top: 2rem;

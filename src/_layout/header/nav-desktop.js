@@ -7,7 +7,7 @@ import { LinkButton as Button } from '../../_components/buttons';
 import RateBar from './rate-bar';
 
 const MainCont = styled.nav`
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;

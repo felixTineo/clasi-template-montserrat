@@ -9,7 +9,7 @@
 
   const MainCont = styled.div`
     height: calc(100vh - 8rem);
-    margin-top: 1.5rem;
+    margin-top: 137.52px;
     margin-bottom: 4rem;
     position: relative;
     display: flex;

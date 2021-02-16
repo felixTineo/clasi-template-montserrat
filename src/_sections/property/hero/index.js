@@ -7,7 +7,8 @@ import Gallery from './gallery';
 import Description from './description';
 
 const MainCont = styled.div`
-  padding-top: 10rem;
+  //padding-top: 10rem;
+  margin-top: 137.52px;
 `
 export default ({ state })=> {
   //const state = useContext(Context).singleProperty;

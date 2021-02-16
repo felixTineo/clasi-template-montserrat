@@ -9,7 +9,7 @@ const Footer = styled.footer`
     background-color: #333;
 `
 const MainFooter = styled.div`
-  padding: 4rem 0;
+  padding: 2rem 0;
 `
 const FooterRightsCont = styled.div`
   background-color: ${props => props.theme.main.primaryColor};

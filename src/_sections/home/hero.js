@@ -7,14 +7,15 @@
 
   const MainCont = styled.div`
     height: calc(100vh - 8rem);
-    margin-top: 1.5rem;
+    margin-top: 137.52px;
     margin-bottom: 4rem;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
     @media(min-width: 576px){
-      min-height: calc(100vh - 87px);
+      min-height: calc(100vh - 170.58px);
       margin-top: 0;
     }
     ::before{
@@ -30,7 +31,7 @@
       background-position: center;
       opacity: 1;
       @media(min-width: 576px){
-        min-height: calc(100vh - 87px);
+        min-height: calc(100vh - 170.58px);
         opacity: 1;
         width: 60%;
         height: 100%;

@@ -14,7 +14,7 @@ export default ({ data }) => {
       <Hero />
       <History />
       <Description />
-      <Stats />    
+      {/*<Stats />    */}
       <Team />
       <Ubication />
     </Layout>

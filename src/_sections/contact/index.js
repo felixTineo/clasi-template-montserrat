@@ -13,7 +13,10 @@ const MainCont = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 4rem;
+  margin-top: 137.52px;
+  @media(min-width: 768px){
+    margin-top: 4rem;
+  }
 `
 
 const Title = styled.h1`

@@ -13,11 +13,11 @@ const Title = styled.p`
   height: 100%;
   //background-color: ${props => props.theme.main.primaryColor};
   //color: #fff;
-  padding: 2rem;
+  //padding: 2rem;
   font-weight: bold;
   margin: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   //font-size: 2rem;
 `
@@ -27,10 +27,11 @@ export default ({ noContact })=> {
   const { lat, lng } = useContext(Context).office;
   return(
     <MainCont>
-      <Row nogutter>
+      <Container>
+      <Row>
         <Col xs={12} md={5}>
           <Title>
-          Encuéntranos en 5 Norte N°816, Of. 10, Viña del Mar
+            Encuéntranos en 5 Norte N°816, Of. 10, Viña del Mar
           </Title>
         </Col>
         <Col xs={12} md={7}>
@@ -62,6 +63,7 @@ export default ({ noContact })=> {
           </Fragment>
         )
       }
+      </Container>
     </MainCont>
   )
 }

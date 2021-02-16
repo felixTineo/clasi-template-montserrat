@@ -47,7 +47,7 @@ const CardTitleCont = styled.ul`
 const CardTitle = styled.li`
   font-weight: bold;
   color: #2a2a2a;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-bottom: .5rem;
 `
 const CardPrice = styled.li`
@@ -75,7 +75,7 @@ const OperationCont = styled.div`
   left: 0px;
   background-color: #fff;
   padding: 0 1rem;
-  padding-top: 2rem;
+  padding-top: 1rem;
   min-width: 80%;
   overflow: hidden;
   color: #686868;
