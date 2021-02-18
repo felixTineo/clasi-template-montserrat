@@ -13,42 +13,61 @@ const Form = styled.form`
   @media(min-width: 768px){
     width: 100%;
     padding: 0;
-    padding-left: 5px;
+    //padding-left: 5px;
     background-color: #fff;
     margin-bottom:0;
   }  
 `
 
-export default ({ block, shadow })=> {
+export default ({ block, shadow, values, onChange, onSubmit })=> {
 
   return(
-    <Form onSubmit={(e) => e.preventDefault()} block={block} shadow={shadow}>
-      <Row>
+    <Form onSubmit={(e)=> { e.preventDefault(); onSubmit(); }}>
+      <Row gutterWidth={8}>
         <Col xs={12} md={2}>
-          <Input gray placeholder="Desde" />
-        </Col>
-        <Col xs={12} md={2}>
-          <Input gray placeholder="Hasta" />
-        </Col>
-        <Col xs={12} md={2}>
-          <Select
-            default="Dormitorios"
-            options={["opcion 1", "opcion 2", "opcion 3"]}
+          <Input
             gray
+            placeholder="Precio desde"
+            id="priceMin"
+            value={values.priceMin}
+            onChange={onChange}
+          />
+        </Col>
+        <Col xs={12} md={2}>
+          <Input
+            gray
+            placeholder="Precio hasta"
+            id="priceMax"
+            value={values.priceMax}
+            onChange={onChange}
+          />
+        </Col>
+        <Col xs={12} md={2}>
+          <Input
+            gray
+            placeholder="Superficie desde"
+            id="totalAreaTo"
+            value={values.totalAreaTo}
+            onChange={onChange}
+          />
+        </Col>    
+        <Col xs={12} md={2}>
+          <Input
+            gray
+            placeholder="Superficie hasta"
+            id="totalAreaFrom"
+            value={values.totalAreaFrom}
+            onChange={onChange}
           />
         </Col>    
         <Col xs={12} md={2}>
           <Select
-            default="Baños"
-            options={["opcion 1", "opcion 2", "opcion 3"]}
+            default="Moneda"
+            options={["CLP", "UF"]}
             gray
-          />
-        </Col>    
-        <Col xs={12} md={2}>
-          <Select
-            default="Divisas"
-            options={["opcion 1", "opcion 2", "opcion 3"]}
-            gray
+            id="currency"
+            value={values.currency}
+            onChange={onChange}
           />
         </Col>                
         <Col xs={12} md={2}>

@@ -96,7 +96,6 @@
 
   export default ()=> {
     const state = useContext(Context);
-    const [filter, setFilter] = useState(false);
     return(
       <Fragment>
         <MainCont>
@@ -113,29 +112,7 @@
           <ButtonContainer>
             <Container>
             <FormContainer className="animate__animated animate__fadeInUp">
-              <SearchForm />
-              <MoreButton onClick={()=> setFilter(!filter)}>
-                {
-                  filter
-                  ?(
-                    <Fragment>
-                      Menos filtros
-                      <UpOutlined style={{ marginLeft: 8 }} />        
-                    </Fragment>
-                  )
-                  :(
-                    <Fragment>
-                      Más filtros
-                      <DownOutlined style={{ marginLeft: 8 }} />              
-                    </Fragment>              
-                  )
-                }
-              </MoreButton>
-              {
-                filter && (
-                  <FilterForm shadow/>
-                )
-              }              
+              <SearchForm noHome />          
             </FormContainer>
             </Container>
           </ButtonContainer>

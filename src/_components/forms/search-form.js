@@ -4,9 +4,11 @@ import { Col, Row, } from 'react-grid-system';
 import { Select, Input, Autocomplete } from '../../_components/inputs';
 import { Button } from '../../_components/buttons';
 import { useNavigateForm } from '../../_hooks';
+import { getSearchParams } from 'gatsby-query-params';
 import PROPERTY_TYPE from '../../_constants/PROPERTY_TYPE.json';
 import COMMUNES from '../../_constants/CITIES.json';
-import { getSearchParams } from 'gatsby-query-params';
+import FilterForm from './filter-form';
+import { DownOutlined, UpOutlined } from '@ant-design/icons';
 
 const Form = styled.form`
 
@@ -40,9 +42,23 @@ const SvgCont = styled.svg`
     
   }
 `
+const MoreButton = styled.button`
+margin: 2rem 0;
+border: none;
+background: transparent;
+color: ${props => props.theme.main.primaryColor};
+transition: 250ms ease;
+display: flex;
+justify-content: center;
+align-items: center;
+&:hover{
+  filter: saturate(5.5);
+}
+`
 
-export default ({ filter })=> {
+export default ({ noHome })=> {
   const [byCode, setByCode] = useState(false);
+  const [filter, setFilter] = useState(false);
   const { values, onChange, onFinish, setInitial } = useNavigateForm({
     propertyType: '',
     operation: '',
@@ -52,7 +68,7 @@ export default ({ filter })=> {
     priceMax: '',
     bedrooms: '',
     bathrooms: '',
-    currency: '',
+    currency: 'CLP',
   });
   const params = getSearchParams();
   
@@ -68,9 +84,11 @@ export default ({ filter })=> {
         stringSearch: '',
         priceMin: '',
         priceMax: '',
+        totalAreaTo: '',
+        totalAreaFrom: '',
         bedrooms: '',
         bathrooms: '',
-        currency: '',
+        currency: 'CLP',
       })
     }
   },[params, byCode]);
@@ -81,8 +99,10 @@ export default ({ filter })=> {
     } else {
       setByCode(false);
     }
-  })
+  });
+  
   return(
+    <Fragment>
     <Form onSubmit={(e)=> { e.preventDefault(); onFinish(); }}>
       <Row gutterWidth={8}>
         <Col xs={12} md={2}>
@@ -146,7 +166,7 @@ export default ({ filter })=> {
           )
         }
         <Col xs={12} md={2}>
-          <Button block primary>
+          <Button block primary type="submit">
             Buscar
             <SvgCont width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
               <path fillRule="evenodd" cliRule="evenodd" d="M11.3749 5.68752C11.3749 6.94027 10.9629 8.09586 10.2739 9.03665L14 12.7627L12.7627 14L9.03671 10.274C8.09592 10.9629 6.94023 11.375 5.68749 11.375C2.55152 11.375 0 8.82351 0 5.68752C0 2.55153 2.55149 0 5.68746 0C8.82343 0 11.3749 2.55153 11.3749 5.68752ZM1.75001 5.68752C1.75001 7.8588 3.51623 9.62503 5.68749 9.62503C7.85872 9.62503 9.62497 7.8588 9.62497 5.68752C9.62497 3.51625 7.85875 1.75002 5.68749 1.75002C3.51623 1.75002 1.75001 3.51625 1.75001 5.68752Z"/>
@@ -155,5 +175,30 @@ export default ({ filter })=> {
         </Col>                        
       </Row>
     </Form>
+    { noHome && (
+      <MoreButton type="button" onClick={()=> setFilter(!filter)}>
+      {
+        filter
+        ?(
+          <Fragment>
+            Menos filtros
+            <UpOutlined style={{ marginLeft: 8 }} />        
+          </Fragment>
+        )
+        :(
+          <Fragment>
+            Más filtros
+            <DownOutlined style={{ marginLeft: 8 }} />              
+          </Fragment>              
+        )
+      }
+      </MoreButton>
+    )}
+    {
+      filter && (
+        <FilterForm values={values} onChange={onChange} onSubmit={onFinish} />
+      )
+    }
+    </Fragment>
   )
 }
