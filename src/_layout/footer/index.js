@@ -54,11 +54,10 @@ const NavLink = styled(Link)`
   color: #fff;
   transition: 250ms ease;
   text-decoration: none;
-  font-weight: bold;
+  //font-weight: bold;
   margin-bottom: 1rem;
-  @media(min-width: 768px){
-    display: block;
-  }
+  font-size: .8rem;
+  display: block;
   &:visited{
     color: #212121;
     color: #fff;
@@ -181,35 +180,46 @@ export default ()=> {
                 </Col>
               </Row>
             </Col>
-            <Col xs={12} md={4}>
+            <Col xs={12} md={5}>
               <NavCont>
                 <Row>
-                  <Col xs={6} md={6}>
+                  <Col xs={4} md={4}>
                     <NavLink to={`/about`}>
                       Nosotros
                     </NavLink>
-                  </Col>
-                  <Col xs={6} md={6}>
                     <NavLink to={`/properties`}>
                       Propiedades
-                    </NavLink>                  
-                  </Col>
-{/*                  <Visible md xs xxl lg xl>
-                    <Col xs={6} md={6}>
-                      <NavLink to="/news">
-                        Noticias
-                      </NavLink>                  
-                    </Col>
-</Visible>*/}
-                  <Col xs={6} md={6}>
+                    </NavLink>   
                     <NavLink to={`/contact`}>
                       Contacto
-                    </NavLink>                  
-                  </Col>                                          
+                    </NavLink>                                                     
+                  </Col>
+                  <Col xs={4} md={4}>
+                    <NavLink href="http://www.sii.cl/" rel="noopener" target="_blank" >
+                      SII
+                    </NavLink>
+                    <NavLink href="http://www.tesoreria.cl/" rel="noopener" target="_blank" >
+                      TGR
+                    </NavLink>   
+                    <NavLink href="https://www.tesoreria.cl/portal/ofVirtual/aLink.do?go=crt2" rel="noopener" target="_blank" >
+                      Consultar Contribuciones
+                    </NavLink>   
+                  </Col>
+                  <Col xs={4} md={4}>
+                    <NavLink href="https://www.registrocivil.cl/  " rel="noopener" target="_blank" >
+                      Registro Civil
+                    </NavLink>                                           
+                    <NavLink href="https://zeus.sii.cl/avalu_cgi/br/brc203.sh" rel="noopener" target="_blank" >
+                      Avalúos
+                    </NavLink>                                                                                      
+                    <NavLink href="http://www.clientebancario.cl/simuladorhipotecario/aplicacion?indice=101.2.1" rel="noopener" target="_blank" >
+                      Simulador Hipotecario
+                    </NavLink>                                              
+                  </Col>
                 </Row>
               </NavCont>
             </Col>         
-            <Col xs={12} md={4}>
+            <Col xs={12} md={3}>
               <Row>
                 <Col xs={12}>
                 </Col>                            
