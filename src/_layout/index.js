@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Context from '../_context';
 import styled, { ThemeProvider } from 'styled-components';
 import Header from './header';
@@ -22,6 +22,10 @@ const Body = styled.div`
 `
 
 export default ({ children, data })=> {
+  
+  useEffect(()=>{
+    (function(){var ldk=document.createElement('script'); ldk.type='text/javascript'; ldk.async=true; ldk.src='https://s.cliengo.com/weboptimizer/6036c5b6321d09002a441e8d/6037d71c5eaf5e002a8ac96b.js?platform=onboarding_modular_mail_webmaster'; var s=document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s);})();    
+  },[]);
 
   return(
     <Context.Provider value={data}>
@@ -35,8 +39,8 @@ export default ({ children, data })=> {
             <meta name="og:url" content="" />
             <meta name="og:title" content="Oro | Propiedad" />
             <meta name="og:description" content="Encuentra aquí, tu lugar favorito" />
-            {/*<meta name="og:image" content="http://propiedadesmyc.cl/og-meta.jpg" />*/}
-            <meta name="og:type" content="website" />            
+            {/*<meta name="og:image" content="http://propiedadesmyc.cl/logo.png" />*/}
+            <meta name="og:type" content="website" />          
           </Helmet>             
           <Header />
           <Body>
